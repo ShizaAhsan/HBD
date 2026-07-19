@@ -1,0 +1,198 @@
+body {
+    margin: 0;
+    font-family: cursive;
+    background: url("shiza_screen.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.intro {
+    height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+h1 {
+    font-size: 40px;
+    text-align: center;
+}
+
+
+.shiza-photo {
+    width: 300px;
+    border-radius: 20px;
+}
+
+
+/* Video neeche wala section */
+.video-section {
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    opacity:0;
+    transform:translateY(100px);
+    transition:1s;
+}
+
+
+.video-section.show {
+
+    opacity:1;
+    transform:translateY(0);
+
+}
+
+
+.b-video {
+
+    width:500px;
+    border-radius:20px;
+
+}
+.heart{
+
+    position: fixed;
+    bottom: -20px;
+
+    font-size: 30px;
+
+    animation: floatHeart linear forwards;
+
+    pointer-events: none;
+
+    z-index: 1000;
+
+}
+
+
+@keyframes floatHeart{
+
+    0%{
+
+        transform: translateY(0) scale(1);
+        opacity:1;
+
+    }
+
+    100%{
+
+        transform: translateY(-100vh) scale(1.8);
+        opacity:0;
+
+    }
+
+}
+.scroll-down{
+
+    margin-top:40px;
+
+    font-size:25px;
+
+    color:rgb(250, 4, 197);
+
+    animation: bounce 1.5s infinite;
+
+}
+
+
+@keyframes bounce{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(15px);
+    }
+
+}
+/* =========================
+   Responsive Second Page
+========================= */
+
+
+.intro{
+
+    min-height:100vh;
+    padding:20px;
+    box-sizing:border-box;
+
+}
+
+
+.intro h1{
+
+    text-align:center;
+
+}
+
+
+.shiza-photo{
+
+    max-width:90%;
+    height:auto;
+
+}
+
+
+
+.video-section{
+
+    min-height:100vh;
+
+    padding:20px;
+    box-sizing:border-box;
+
+}
+
+
+.b-video{
+
+    width:80%;
+    max-width:600px;
+
+}
+
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+
+    .intro h1{
+
+        font-size:25px;
+
+    }
+
+
+    .shiza-photo{
+
+        width:90%;
+
+    }
+
+
+    .b-video{
+
+        width:100%;
+
+    }
+
+
+    .scroll-down{
+
+        font-size:18px;
+
+    }
+
+}
