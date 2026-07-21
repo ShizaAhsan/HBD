@@ -1,158 +1,168 @@
-body{
+body {
+    margin: 0;
+    padding: 0;
     background-image: url("screen1.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height:100vh;
-}
-.HBD-head
-{
-    color: white;
-    font-family:cursive;
-    display:flex;
+    min-height: 100vh;
+    font-family: 'Outfit', sans-serif;
+    display: flex;
     justify-content: center;
     align-items: center;
-    animation-name:slide;
-    font-size:80px;
+    overflow: hidden;
+}
 
+/* Background overlay to make text pop */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
 }
-#main-head
-{
-    padding: 20px;
-    color: rgb(246, 253, 43);
-    -webkit-text-stroke: 2px white
+
+/* Glassmorphism Container */
+.glass-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+    animation: fadeIn 1s ease-out;
 }
-#main-head:hover
-{
-    color: pink;    
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
-.ques
-{
+
+.HBD-head {
+    color: white;
+    font-family: 'Pacifico', cursive;
     display: flex;
-    justify-content:center ;
-    font-size:50px;
-    color: rgba(243, 193, 14, 0.861);
-    font-style: oblique;
-    font-family: cursive;
-    -webkit-text-stroke: 0.5px rgb(10, 0, 0);
-
-}
-button
-{
-    display: grid;
-    justify-content:center;
-    margin: 5px ;
-    padding: 10px;
-    padding-left: 40px;
-    padding-right: 40px;
-    background-color:rgb(255, 213, 0);
-    color:rgba(0, 11, 20, 0.868);
-    border-radius: 6px;
-    border-color: aliceblue;
-    box-shadow: 2px;
-
-}
-button:hover
-{
-    
-    background-color:pink;
-    color:rgba(237, 239, 241, 0.868);
-}
-.btt
-{
-    
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-    display: grid;
-    justify-content:center;
-    border-radius: 4px;
+    font-size: 70px;
+    margin: 0;
+    line-height: 1.2;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
 }
-.big
-{
-    transform: scale(1.3);
+
+#main-head {
+    padding: 0 15px;
+    color: #ffde59;
+    transition: all 0.3s ease;
 }
-.zoraiz,
-.ibtihal {
-    transition: 0.3s;
+
+#main-head:hover {
+    color: #ff914d;
+    transform: scale(1.1);
+    text-shadow: 0 0 15px rgba(255, 145, 77, 0.8);
+}
+
+.ques {
+    font-size: 35px;
+    color: #ffffff;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.btt {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+button {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    padding: 12px 35px;
+    background: linear-gradient(135deg, #ffde59 0%, #ff914d 100%);
+    color: #1a1a1a;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(255, 145, 77, 0.4);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 145, 77, 0.6);
+    background: linear-gradient(135deg, #ff914d 0%, #ffde59 100%);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+.shiza {
+    background: linear-gradient(135deg, #ff007f 0%, #ff7f00 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 0, 127, 0.4);
+}
+.shiza:hover {
+    background: linear-gradient(135deg, #ff7f00 0%, #ff007f 100%);
+    box-shadow: 0 8px 25px rgba(255, 0, 127, 0.6);
+}
+
+.zoraiz, .ibtihal {
+    transition: all 0.2s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 /* =========================
    Responsive Design
 ========================= */
 
-
-/* Tablet */
 @media (max-width: 900px){
-
     .HBD-head{
-
-        font-size:60px;
+        font-size: 55px;
     }
-
-
     .ques{
-
-        font-size:35px;
+        font-size: 28px;
     }
-
-
     button{
-
-        padding-left:30px;
-        padding-right:30px;
-
+        padding: 10px 25px;
+        font-size: 18px;
     }
-
 }
 
-
-
-/* Mobile */
 @media (max-width:600px){
-
-
-    body{
-
-        background-position:center;
+    .glass-container {
+        padding: 25px 15px;
     }
-
-
     .HBD-head{
-
-        font-size:40px;
-        flex-wrap:wrap;
-        text-align:center;
-
+        font-size: 40px;
     }
-
-
     #main-head{
-
-        padding:10px;
-
+        padding: 5px;
     }
-
-
     .ques{
-
-        font-size:25px;
-        text-align:center;
-
+        font-size: 22px;
     }
-
-
     .btt{
-
-        gap:10px;
-
+        gap: 15px;
+        flex-direction: column;
+        align-items: center;
     }
-
-
     button{
-
-        padding:10px 25px;
-        font-size:16px;
-
+        width: 80%;
+        max-width: 250px;
     }
-
-
 }
