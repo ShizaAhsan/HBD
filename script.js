@@ -9,10 +9,25 @@ const zoraiz = document.querySelector(".zoraiz");
 const ibi = document.querySelector(".ibtihal");
 
 function moveButton(button) {
-    button.style.position = "fixed";
+    // Because the glass container has a backdrop-filter, it creates a new containing block.
+    // We must move the button to the body so position: fixed is relative to the screen.
+    if (button.parentElement !== document.body) {
+        document.body.appendChild(button);
+    }
 
-    let x = Math.random() * (window.innerWidth - button.offsetWidth);
-    let y = Math.random() * (window.innerHeight - button.offsetHeight);
+    button.style.position = "fixed";
+    button.style.zIndex = "999"; // Ensure it stays on top of other elements
+
+    // Add a safety margin so it doesn't touch the very edges of the screen
+    const margin = 30; 
+    
+    // Calculate max positions available, ensuring we don't go negative
+    const maxX = Math.max(margin, window.innerWidth - button.offsetWidth - margin);
+    const maxY = Math.max(margin, window.innerHeight - button.offsetHeight - margin);
+
+    // Generate random coordinates between margin and max
+    let x = margin + Math.random() * (maxX - margin);
+    let y = margin + Math.random() * (maxY - margin);
     let rotation = (Math.random() - 0.5) * 60; // random rotation between -30 and 30 deg
 
     button.style.left = x + "px";
